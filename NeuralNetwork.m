@@ -5,10 +5,9 @@ fprintf('Loading Data ...\n')
 Xtrain=[Xtrain;Xcv];
 ytrain=[ytrain;ycv];
 m = size(Xtrain, 1);
-input_layer_size  =201;
-hidden_layer_size = 25;
+input_layer_size  =181;
+hidden_layer_size = 140;
 num_labels = 8;
-
 
 initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);
 initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
@@ -21,9 +20,10 @@ initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 fprintf('\nTraining Neural Network... \n')
 
 
-options = optimset('MaxIter', 2000);
+options = optimset('MaxIter', 800);
 
 %try different values of lambda
+
 lambda = 3;
 
 % Create "short hand" for the cost function to be minimized

@@ -1,5 +1,5 @@
 function [Xtrain ytrain Xcv ycv Xtest ytest] = readSplitData()
-  load('Data.mat');
+  load('Data1.mat');
   input = X(:,1:size(X,2)-1);
   [input mu sigma] = featureNormalize(input);
   input = [ones(size(input,1),1) input];

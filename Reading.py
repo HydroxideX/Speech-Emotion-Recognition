@@ -45,7 +45,7 @@ for i in range(1, 25):
     if i < 10:
      myDir += '0'
      myDir += str(i)
-
+     
     if i >9:
       myDir += str(i)
 
