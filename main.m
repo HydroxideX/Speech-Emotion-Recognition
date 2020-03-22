@@ -15,8 +15,8 @@ fprintf('\nTraining One-vs-All Logistic Regression...\n')
 bestLambda = 0;
 testAccuracy = 0;
 bestTestAccuracy = 0;
-lambda = 0.00000001
-for i = 1:8
+lambda = 1.00
+for i = 1:40
   i
   [all_theta] = oneVsAll(Xtrain, ytrain, num_labels, lambda);
   pred = predictOneVsAll(all_theta, [Xcv; Xtest]);
@@ -25,7 +25,7 @@ for i = 1:8
     bestLambda = lambda;
     bestTestAccuracy = testAccuracy;
   end;
-  lambda *= 10;
+  lambda += 0.01;
 end;
 bestLambda
 bestTestAccuracy

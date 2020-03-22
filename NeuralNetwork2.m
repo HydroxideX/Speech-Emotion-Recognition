@@ -11,26 +11,24 @@ num_labels = 8;
 
 
 initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);
-initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
+initial_Theta2 = randInitializeWeights(hidden_layer_size, hidden_layer_size);
+initial_Theta3 = randInitializeWeights(hidden_layer_size, num_labels);
 
 % Unroll parameters
-initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
+initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:);initial_Theta3(:)];
 
 %% =================== Training NN ===================
 
 fprintf('\nTraining Neural Network... \n')
 
 
-options = optimset('MaxIter', 2000);
+options = optimset('MaxIter', 200);
 
 %try different values of lambda
 lambda = 1.979931599439399;
 
 % Create "short hand" for the cost function to be minimized
-costFunction = @(p) nnCostFunction(p, ...
-                                   input_layer_size, ...
-                                   hidden_layer_size, ...
-                                   num_labels, Xtrain, ytrain, lambda);
+costFunction = @(p) nnCostFunction2(p, input_layer_size, hidden_layer_size, num_labels, Xtrain, ytrain, lambda);
 
 % Now, costFunction is a function that takes in only one argument (the
 % neural network parameters)
@@ -41,6 +39,9 @@ Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
                  hidden_layer_size, (input_layer_size + 1));
 
 Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...
+                 hidden_layer_size, (hidden_layer_size + 1));
+                 
+Theta3 = reshape(nn_params((1 + (hidden_layer_size * (hidden_layer_size + 1))):end), ...
                  num_labels, (hidden_layer_size + 1));
 
 fprintf('Program paused. Press enter to continue.\n');
@@ -48,6 +49,6 @@ pause;
 
 
 %================== Predict-Data============
-pred = predict(Theta1, Theta2, Xtest);
+pred = predict2(Theta1, Theta2,Theta3, Xtest);
 
 fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == ytest)) * 100);
