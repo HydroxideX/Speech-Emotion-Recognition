@@ -15,7 +15,7 @@ fprintf('\nTraining One-vs-All Logistic Regression...\n')
 bestLambda = 0;
 testAccuracy = 0;
 bestTestAccuracy = 0;
-lambda = 0.000001
+lambda = 0.00000001
 for i = 1:8
   i
   [all_theta] = oneVsAll(Xtrain, ytrain, num_labels, lambda);
