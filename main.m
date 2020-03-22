@@ -5,7 +5,6 @@ num_labels = 8;
 fprintf('Loading Data ...\n')
 
 [Xtrain ytrain Xcv ycv Xtest ytest] = readSplitData();
-
 m = size(Xtrain, 1);
 
 fprintf('Program paused. Press enter to continue.\n');
