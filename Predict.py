@@ -13,7 +13,7 @@ def predictGivenFileName(filename):
         result[j] -= mu[j]
         result[j] /= sigma[j]
     prediction = predict(theta1, theta2, result)
-    return prediction
+    return prediction + 1
 
 
 def extract_feature(file_name):
