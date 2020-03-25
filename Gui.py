@@ -27,7 +27,6 @@ indexOfEmotion = ''
 
 def printPrediction():
     global indexOfEmotion
-    print(indexOfEmotion)
     if indexOfEmotion == 1:
         print("Your PH is 7 aka 'NEUTRAL'")
     elif indexOfEmotion == 2:
