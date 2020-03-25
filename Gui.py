@@ -3,7 +3,8 @@ from tkinter import filedialog
 
 import Predict
 
-# my function can be used as follows: indexOfEmotion = Predict.predictGivenFileName(filename) filename is a string with full file location "D//abc//1.wav"   ranges from 1 to 8
+# my function can be used as follows: indexOfEmotion = Predict.predictGivenFileName(filename) filename is a string
+# with full file location "D//abc//1.wav"   ranges from 1 to 8
 
 root = Tk()
 myLabel = Label(root, text="You Think NO One Cares About Your Feelings!", bg="red", fg="white", font=("Helvetica", 16))
@@ -25,7 +26,24 @@ indexOfEmotion = ''
 
 
 def printPrediction():
-    pass
+    global indexOfEmotion
+    print(indexOfEmotion)
+    if indexOfEmotion == 1:
+        print("happy")
+    elif indexOfEmotion == 2:
+        print("")
+    elif indexOfEmotion == 3:
+        print("")
+    elif indexOfEmotion == 4:
+        print("")
+    elif indexOfEmotion == 5:
+        print("")
+    elif indexOfEmotion == 6:
+        print("")
+    elif indexOfEmotion == 7:
+        print("")
+    elif indexOfEmotion == 8:
+        print("")
 
 
 def filebrowser():
@@ -33,8 +51,9 @@ def filebrowser():
     global indexOfEmotion
     audioFile = filedialog.askopenfilename(initialdir="/", title="Select Your Audio File",
                                            filetypes=(("Audio Files", ".wav "), ("All Files", "*.*")))
-    indexOfEmotion = Predict.predictGivenFileName(audioFile)
-    printPrediction()
+    if audioFile:
+        indexOfEmotion = Predict.predictGivenFileName(audioFile)
+        printPrediction()
 
 
 browseButton = Button(bottomFrame, text="Browse", fg="red", command=filebrowser)
