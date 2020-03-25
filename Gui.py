@@ -29,21 +29,21 @@ def printPrediction():
     global indexOfEmotion
     print(indexOfEmotion)
     if indexOfEmotion == 1:
-        print("happy")
+        print("Your PH is 7 aka 'NEUTRAL'")
     elif indexOfEmotion == 2:
-        print("")
+        print("You are as Calm as a Sloth")
     elif indexOfEmotion == 3:
-        print("")
+        print("The Joker is Proud of you")
     elif indexOfEmotion == 4:
-        print("")
+        print(":(")
     elif indexOfEmotion == 5:
-        print("")
+        print("Take a Chill pill")
     elif indexOfEmotion == 6:
-        print("")
+        print("It's Okay, I am here")
     elif indexOfEmotion == 7:
-        print("")
+        print("Disgust")
     elif indexOfEmotion == 8:
-        print("")
+        print("Boo")
 
 
 def filebrowser():
@@ -58,8 +58,8 @@ def filebrowser():
 
 browseButton = Button(bottomFrame, text="Browse", fg="red", command=filebrowser)
 browseButton.pack(side=LEFT)
-recordButton = Button(bottomFrame, text="Record", fg="blue")
-recordButton.pack(side=LEFT)
+#recordButton = Button(bottomFrame, text="Record", fg="blue")
+#recordButton.pack(side=LEFT)
 exitButton = Button(bottomFrame, text="Exit", fg="black", command=exit)
 exitButton.pack(side=LEFT)
 root.mainloop()
