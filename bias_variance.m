@@ -2,7 +2,7 @@
 Xtrain=[Xtrain];
 ytrain=[ytrain];
 m = size(Xtrain, 1);
-input_layer_size  =201;
+input_layer_size  =181;
 hidden_layer_size = 25;
 num_labels = 8;
 
@@ -18,13 +18,14 @@ initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 fprintf('\nTraining Neural Network... \n')
 
 
-options = optimset('MaxIter', 50);
+options = optimset('MaxIter', 500);
 
 %try different values of lambda
-lambda = 1.979931599439399;
+lambda = 2.8;
 Jtrain=[];
 Jcv=[];
-for i=1:size(Xtrain,1)
+constant=80;
+for i=1:constant
 % Create "short hand" for the cost function to be minimized
   xtemp=Xtrain(1:i,:);
   ytemp=ytrain(1:i,:);
@@ -54,12 +55,12 @@ Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):en
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
-plot(1:m, Jtrain, 1:m, Jcv);
+plot(1:constant, Jtrain, 1:constant, Jcv);
 title('Learning curve for linear regression')
 legend('Train', 'Cross Validation')
 xlabel('Number of training examples')
 ylabel('Error')
-axis([0 13 0 150])
+axis([0 80 0 4])
 
 
 %================== Predict-Data============
