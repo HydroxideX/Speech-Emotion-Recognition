@@ -5,7 +5,7 @@ fprintf('Loading Data ...\n')
 Xtrain=[Xtrain;Xcv;Xtest];
 ytrain=[ytrain;ycv;ytest];
 m = size(Xtrain, 1);
-input_layer_size  =181;
+input_layer_size  =180;
 hidden_layer_size = 57;
 num_labels = 8;
 
@@ -14,21 +14,16 @@ initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
 
 % Unroll parameters
 initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
-                 
 
 %% =================== Training NN ===================
 
 fprintf('\nTraining Neural Network... \n')
 
 
-
 %try different values of lambda
 lambda = 10;
 
 options = optimset('MaxIter', 500);
-
-%try different values of lambda
-lambda = 3;
 
 % Unroll parameters
 initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
