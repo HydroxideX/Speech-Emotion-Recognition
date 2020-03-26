@@ -1,6 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from Tkinter import *
 from Tkinter import filedialog
+=======
+from tkinter import *
+from tkinter import filedialog
+>>>>>>> efcb7aead884cd8be973bf9c28392d0676acdc3d
 =======
 from tkinter import *
 from tkinter import filedialog

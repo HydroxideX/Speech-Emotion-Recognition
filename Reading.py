@@ -38,6 +38,7 @@ for i in range(1, 25):
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 f.write("# Created by Octave 4.4.1, Sun Mar 22 15:17:52 2020 GMT <unknown@DESKTOP-1KJ1QHE>\n")
 f.write("# name: X\n")
 f.write("# type: matrix\n")
@@ -45,6 +46,10 @@ f.write("# rows: 1440\n")
 f.write("# columns: 200\n")
 write(X)
 f.close()
+=======
+WriteVectorForOctave.write(X)
+
+>>>>>>> efcb7aead884cd8be973bf9c28392d0676acdc3d
 =======
 WriteVectorForOctave.write(X)
 

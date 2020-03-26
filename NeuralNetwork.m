@@ -22,12 +22,15 @@ fprintf('\nTraining Neural Network... \n')
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 options = optimset('MaxIter', 5);
 options = optimset('MaxIter', 100);
 
 %try different values of lambda
 lambda = 10;
 =======
+=======
+>>>>>>> efcb7aead884cd8be973bf9c28392d0676acdc3d
 options = optimset('MaxIter', 500);
 
 %try different values of lambda
@@ -66,8 +69,11 @@ fprintf('Program paused. Press enter to continue.\n');
 pred = predict(Theta1, Theta2, Xtrain);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 fprintf('accuracy %f\n', mean(double(pred == ytrain)) * 100);
 =======
+=======
+>>>>>>> efcb7aead884cd8be973bf9c28392d0676acdc3d
 fprintf('\: %f\n', mean(double(pred == ytrain)) * 100);
 
 endfor
