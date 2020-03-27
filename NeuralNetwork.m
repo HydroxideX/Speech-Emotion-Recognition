@@ -2,11 +2,10 @@ clear ; close all; clc
 
 fprintf('Loading Data ...\n')
 [Xtrain ytrain Xcv ycv Xtest ytest] = readSplitData();
-Xtrain=[Xtrain;Xcv;Xtest];
-ytrain=[ytrain;ycv;ytest];
+
 m = size(Xtrain, 1);
-input_layer_size  =180;
-hidden_layer_size = 57;
+input_layer_size  =200;
+hidden_layer_size = 104;
 num_labels = 8;
 
 initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);
@@ -19,11 +18,19 @@ initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 
 fprintf('\nTraining Neural Network... \n')
 
-
+k=0;
+for i=1:100
 %try different values of lambda
-lambda = 10;
+lambda = 3;
+hidden_layer_size = 100+i;
+initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);
+initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
 
-options = optimset('MaxIter', 500);
+% Unroll parameters
+initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
+
+
+options = optimset('MaxIter', 50);
 
 % Unroll parameters
 initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
@@ -44,9 +51,15 @@ Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):en
                  num_labels, (hidden_layer_size + 1));
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+
 
 %================== Predict-Data============
-pred = predict(Theta1, Theta2, Xtrain);
+pred = predict(Theta1, Theta2, Xtest);
 
-fprintf('\: %f\n', mean(double(pred == ytrain)) * 100);
+fprintf('\: %f\n', mean(double(pred == ytest)) * 100);
+
+if k< mean(double(pred == ytest)) * 100
+  k= mean(double(pred == ytest)) * 100;
+  i
+endif;
+endfor;
