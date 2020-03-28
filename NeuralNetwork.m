@@ -18,11 +18,8 @@ initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 
 fprintf('\nTraining Neural Network... \n')
 
-k=0;
-for i=1:100
 %try different values of lambda
-lambda = 3;
-hidden_layer_size = 100+i;
+lambda = 35;
 initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);
 initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
 
@@ -30,7 +27,7 @@ initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
 initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 
 
-options = optimset('MaxIter', 50);
+options = optimset('MaxIter', 300);
 
 % Unroll parameters
 initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
@@ -58,8 +55,3 @@ pred = predict(Theta1, Theta2, Xtest);
 
 fprintf('\: %f\n', mean(double(pred == ytest)) * 100);
 
-if k< mean(double(pred == ytest)) * 100
-  k= mean(double(pred == ytest)) * 100;
-  i
-endif;
-endfor;

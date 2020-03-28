@@ -19,12 +19,12 @@ initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 fprintf('\nTraining Neural Network... \n')
 
 k=intmax;
-lambda = 0;
+lambda = 25.1920;
 best_lambda=lambda;
 bestTheta1=[];
 bestTheta2=[];
 
-while(lambda<10)
+while(lambda<35)
   %try different values of lambda
   initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);
   initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
@@ -67,15 +67,15 @@ while(lambda<10)
   if lambda==0
     lambda=0.001;
   else
-    lambda*=2;
+    lambda+=0.5;
   endif
-  
+  pred = predict(bestTheta1, bestTheta2, Xtest);
+
+  fprintf('Training Accuracy: %f\n', mean(double(pred == ytest)) * 100);
+
 endwhile;
 
 fprintf('Program paused. Press enter to continue.\n');
 
 %================== Predict-Data============
-pred = predict(bestTheta1, bestTheta2, Xtest);
-
-fprintf(': %f\n', mean(double(pred == ytest)) * 100);
 best_lambda
