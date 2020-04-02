@@ -20,10 +20,11 @@ def extract_feature(file_name):
     with soundfile.SoundFile(file_name) as sound_file:
         X = sound_file.read(dtype="float32")
         sample_rate = sound_file.samplerate
+
         stft = np.abs(librosa.stft(X))
         result = np.array([])
 
-        mfccs = np.mean(librosa.feature.mfcc(y=X, sr=sample_rate, n_mfcc=40).T, axis=0)
+        mfccs = np.mean(librosa.feature.mfcc(y=X, sr=sample_rate, n_mfcc=47).T, axis=0)
         result = np.hstack((result, mfccs))
 
         chroma = np.mean(librosa.feature.chroma_stft(S=stft, sr=sample_rate).T, axis=0)
@@ -31,14 +32,17 @@ def extract_feature(file_name):
 
         mel = np.mean(librosa.feature.melspectrogram(X, sr=sample_rate).T, axis=0)
         result = np.hstack((result, mel))
-
+        tonnetz = np.mean(librosa.feature.tonnetz(X, sr=sample_rate).T, axis=0)
+        result = np.hstack((result, tonnetz))
+        contrast = np.mean(librosa.feature.spectral_contrast(X, sr=sample_rate).T, axis=0)
+        result = np.hstack((result, contrast))
         return result
 
 
 def predict(theta1, theta2, example):
     theta1 = np.transpose(theta1)
     theta2 = np.transpose(theta2)
-    c = np.hstack((np.ones(2), example))
+    c = np.hstack((np.ones(1), example))
     h1 = sigmoid(multiply_matrices(c, theta1))
     c = np.hstack((np.ones(1), h1))
     h2 = sigmoid(multiply_matrices(c, theta2))
