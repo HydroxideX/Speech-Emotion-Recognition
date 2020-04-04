@@ -21,6 +21,14 @@ topFrame.pack()
 bottomFrame = Frame(root)
 bottomFrame.pack(side=BOTTOM)
 
+img1 = PhotoImage(file='img/neutral.gif')
+img2 = PhotoImage(file='img/calm.gif')
+img3 = PhotoImage(file='img/happy.gif')
+img4 = PhotoImage(file='img/sad.gif')
+img5 = PhotoImage(file='img/angry.gif')
+img6 = PhotoImage(file='img/fearful.gif')
+img7 = PhotoImage(file='img/disgust.gif')
+img8 = PhotoImage(file='img/surprised.gif')
 audioFile = ''
 indexOfEmotion = ''
 
@@ -28,21 +36,29 @@ indexOfEmotion = ''
 def printPrediction():
     global indexOfEmotion
     if indexOfEmotion == 1:
-        print("Your PH is 7 aka 'NEUTRAL'")
+        label= Label(root,image=img1)
+        label.pack()
     elif indexOfEmotion == 2:
-        print("You are as Calm as a Sloth")
+        label= Label(root,image=img2)
+        label.pack()
     elif indexOfEmotion == 3:
-        print("The Joker is Proud of you")
+        label= Label(root,image=img3)
+        label.pack()
     elif indexOfEmotion == 4:
-        print(":(")
+        label = Label(root, image=img4)
+        label.pack()
     elif indexOfEmotion == 5:
-        print("Take a Chill pill")
+        label= Label(root,image=img5)
+        label.pack()
     elif indexOfEmotion == 6:
-        print("It's Okay, I am here")
+        label= Label(root,image=img6)
+        label.pack()
     elif indexOfEmotion == 7:
-        print("Disgust")
+        label= Label(root,image=img7)
+        label.pack()
     elif indexOfEmotion == 8:
-        print("Boo")
+        label= Label(root,image=img8)
+        label.pack()
 
 
 def filebrowser():
