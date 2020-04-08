@@ -31,34 +31,28 @@ img7 = PhotoImage(file='img/disgust.gif')
 img8 = PhotoImage(file='img/surprised.gif')
 audioFile = ''
 indexOfEmotion = ''
-
+label=Label(root)
+label.pack()
 
 def printPrediction():
     global indexOfEmotion
+    global label
     if indexOfEmotion == 1:
-        label= Label(root,image=img1)
-        label.pack()
+        label.configure(image=img1)
     elif indexOfEmotion == 2:
-        label= Label(root,image=img2)
-        label.pack()
+        label.configure(image=img2)
     elif indexOfEmotion == 3:
-        label= Label(root,image=img3)
-        label.pack()
+        label.configure(image=img3)
     elif indexOfEmotion == 4:
-        label = Label(root, image=img4)
-        label.pack()
+        label .configure(image=img4)
     elif indexOfEmotion == 5:
-        label= Label(root,image=img5)
-        label.pack()
+        label.configure(image=img5)
     elif indexOfEmotion == 6:
-        label= Label(root,image=img6)
-        label.pack()
+        label.configure(image=img6)
     elif indexOfEmotion == 7:
-        label= Label(root,image=img7)
-        label.pack()
+        label.configure(image=img7)
     elif indexOfEmotion == 8:
-        label= Label(root,image=img8)
-        label.pack()
+        label.configure(image=img8)
 
 
 def filebrowser():
