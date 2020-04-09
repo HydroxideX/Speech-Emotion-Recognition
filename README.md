@@ -1,7 +1,7 @@
 # Speech Emotion Recognition
 
 ## Introduction
-- We built a neural network from scratch using Octave that predicts human emotion from his speach ith a 70.909% accuracy.
+- We built a neural network from scratch using Octave that predicts human emotion from his voice with a 70.909% accuracy.
 - We created a python application that predicts human emotion given a ".wav" audio file.
  
 
